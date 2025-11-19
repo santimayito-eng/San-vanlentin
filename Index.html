@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feliz San Valentín</title>
+<style>
+    /* Reset básico */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+```
+html, body {
+    height: 100%;
+    background-color: #ff99cc; /* Rosa intenso */
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.contenedor {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+h1 {
+    font-size: 3em;
+    color: #cc0000;
+    margin-bottom: 20px;
+}
+
+.corazon {
+    position: relative;
+    width: 100px;
+    height: 90px;
+    margin: 0 auto 30px auto;
+}
+
+.corazon-izquierda,
+.corazon-derecha {
+    position: absolute;
+    width: 50px;
+    height: 80px;
+    background-color: #ff1a75;
+    border-radius: 50px 50px 0 0;
+}
+
+.corazon-izquierda {
+    transform: rotate(-45deg);
+    left: 0;
+}
+
+.corazon-derecha {
+    transform: rotate(45deg);
+    right: 0;
+}
+
+.corazon::after {
+    content: "";
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    background-color: #ff1a75;
+    transform: rotate(45deg);
+    top: 25px;
+    left: 15px;
+}
+
+.mensaje {
+    font-size: 1.5em;
+    color: #660033;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+button {
+    background-color: #ff6680;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 20px;
+    margin-top: 30px;
+    transition: background-color 0.3s;
+    display: inline-block;
+}
+
+button:hover {
+    background-color: #ff1a53;
+}
+
+.sorpresa-oculta {
+    display: none;
+    font-size: 1.5em;
+    color: #b30047;
+    margin-top: 30px;
+}
+
+.sorpresa-visible {
+    display: block;
+    animation: aparecer 1s ease-in-out;
+}
+
+@keyframes aparecer {
+    from { opacity: 0; transform: scale(0.5); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* GALERÍA */
+.galeria {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    margin-top: 30px;
+}
+
+.imagen img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.imagen img:hover {
+    transform: scale(1.05);
+}
+
+/* RESPONSIVE */
+@media (max-width: 1000px) { .galeria { grid-template-columns: repeat(4, 1fr); } }
+@media (max-width: 800px)  { .galeria { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 600px)  { .galeria { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 400px)  { .galeria { grid-template-columns: 1fr; } }
+
+/* LIGHTBOX */
+#lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+#lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255,255,255,0.3);
+}
+
+#lightbox:target {
+    display: flex;
+}
+```
+
+</style>
+</head>
+<body>
+<div class="contenedor">
+    <h1>Para Mi Amor, Mi negrita Hermosa</h1>
+    <div class="corazon">
+        <div class="corazon-izquierda"></div>
+        <div class="corazon-derecha"></div>
+    </div>
+    <p class="mensaje">
+        Cada latido de mi corazón es un recuerdo de cuánto te amo.
+        Eres la luz que ilumina mi vida. ¡Feliz San Valentín!
+    </p>
+    <button onclick="mostrarSorpresa()">Sorpresa</button>
+    <div id="sorpresa" class="sorpresa-oculta">
+        <p class="mensaje">
+            💖 Te amo más de lo que las palabras pueden expresar, yeimy natalia mendoza peinado 💖<br>
+            Gracias por que desde que llegaste a mi vida ha sido lo mejor y todo ha sido tan diferente a tu lado, todo es más bonito. Gracias y mil gracias, no sabe la felicidad que tengo de tenerte y un poco de tristeza porque ya no estarás a mi lado para que me digas cosas lindas, me regañes, me cuides y estés pendiente de mi :(.<br>
+            Gracias por ser esa mujer tan linda conmigo y especial, cada momento que paso contigo es tan único y especial, contigo es un recuerdo más en mi vida que podría contar a futuro cuando llevemos más añitos. Espero que puedas seguir esperándome y seguir estando para mi 🫶🏻, negrita de mi vida.
+        </p>
+        <div class="galeria">
+            <div class="imagen"><img src="img1.jpg" alt="Imagen 1"></div>
+            <div class="imagen"><img src="img2.jpg" alt="Imagen 2"></div>
+            <div class="imagen"><img src="img3.jpg" alt="Imagen 3"></div>
+            <div class="imagen"><img src="img4.jpg" alt="Imagen 4"></div>
+            <div class="imagen"><img src="img5.jpg" alt="Imagen 5"></div>
+            <div class="imagen"><img src="img6.jpg" alt="Imagen 6"></div>
+            <div class="imagen"><img src="img7.jpg" alt="Imagen 7"></div>
+            <div class="imagen"><img src="img8.jpg" alt="Imagen 8"></div>
+            <div class="imagen"><img src="img9.jpg" alt="Imagen 9"></div>
+            <div class="imagen"><img src="img10.jpg" alt="Imagen 10"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Lightbox -->
+
+<div id="lightbox" onclick="cerrarLightbox()">
+    <img id="lightbox-img" src="">
+</div>
+
+<script>
+function mostrarSorpresa() {
+    const sorpresa = document.getElementById('sorpresa');
+    sorpresa.classList.toggle('sorpresa-visible');
+}
+
+// Lightbox
+const imagenes = document.querySelectorAll('.imagen img');
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+
+imagenes.forEach(img => {
+    img.addEventListener('click', () => {
+        lightbox.style.display = 'flex';
+        lightboxImg.src = img.src;
+    });
+});
+
+function cerrarLightbox() {
+    lightbox.style.display = 'none';
+}
+</script>
+
+</body>
+</html>
